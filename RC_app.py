@@ -343,7 +343,7 @@ def main():
     if "plot_all_trigger" not in st.session_state:
         st.session_state.plot_all_trigger = False
         
-    if "load_typical_trigger" noi in st.session_state:
+    if "load_typical_trigger" not in st.session_state:
         st.session_state.load_typical_trigger = False
 
     if "plot_current_trigger" not in st.session_state:
@@ -396,8 +396,8 @@ def main():
         plot_all(material_selection)
         st.session_state.plot_all_trigger = False
         
-    if "plot_current_trigger" not in st.session_state:
-        st.session_state.plot_current_trigger = False
+    if "load_typical_trigger" not in st.session_state:
+        st.session_state.load_typical_trigger = False
         
     display_footer()
 
