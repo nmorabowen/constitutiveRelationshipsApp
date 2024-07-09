@@ -58,13 +58,11 @@ def create_top_buttons():
     with erase_all:
         if st.button('Erase All Plots'):
             st.session_state.matObjects = []  # Clear all plots
-            st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects)
             #st.success('All plots erased!')
             
     with load_typical:
         if st.button('Load Typical'):
             default_materials()
-            st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects)
             #st.success('Materials Loaded')
 
 def generate_material_list():
@@ -308,10 +306,10 @@ def default_materials():
     A572=cr.uniaxialBilinealSteel('A572', 50*ksi, 1.10*50*ksi)
     A706Gr60=cr.uniaxialBilinealSteel('A706Gr60', 60*ksi, 1.25*60*ksi)
     
-    fc210uc=cr.uniaxialUnconfinedConcrete('fc210uc', 210*kgf/cm**2)
-    fc240uc=cr.uniaxialUnconfinedConcrete('fc240uc', 240*kgf/cm**2)
-    fc280uc=cr.uniaxialUnconfinedConcrete('fc280uc', 280*kgf/cm**2)
-    fc350uc=cr.uniaxialUnconfinedConcrete('fc350uc', 350*kgf/cm**2)
+    #fc210uc=cr.uniaxialUnconfinedConcrete('fc210uc', 210*kgf/cm**2)
+    fc240uc=cr.uniaxialUnconfinedConcrete('fc240uc', 240*kgf/cm**2, eco=0.003)
+    #fc280uc=cr.uniaxialUnconfinedConcrete('fc280uc', 280*kgf/cm**2)
+    #fc350uc=cr.uniaxialUnconfinedConcrete('fc350uc', 350*kgf/cm**2)
     
     fc240cc=cr.uniaxialConfinedConcrete('fc240cc', 24, 0.003, 300, 400, 30, 3, 4, 16, 2, 2, 10, 200, 420, 0.09)
     
