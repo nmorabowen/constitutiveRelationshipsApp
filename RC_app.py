@@ -20,15 +20,6 @@ def display_header():
     
     Steel: *Bi Linear Model with Strain Hardening*
     
-    More information:
-    
-    www.ape-ec.com
-    
-    www.nmorabowen.com
-    
-    https://github.com/nmorabowen
-    
-    *July 2024*
     """
     st.markdown(text)
 
@@ -304,7 +295,8 @@ def plot_current(mat_object):
 
 def plot_all():
     fig, ax = plt.subplots(figsize=(10, 5))
-    for material in st.session_state.matObjects:
+    #for material in st.session_state.matObjects:
+    for material in st.session_state.multiple_material_selection:
         material.plot(ax=ax)
     st.pyplot(fig)
 
@@ -355,9 +347,13 @@ def main():
 
     if "plot_current_trigger" not in st.session_state:
         st.session_state.plot_current_trigger = False
+        
+    if "multiple_material_selection" not in st.session_state:
+        st.session_state.multiple_material_selection=[]
 
     material_selection=st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects)
-
+    st.session_state.multiple_material_selection.append(material_selection)
+    
     display_header()
     display_pip_install()
     display_dependencies_code()
@@ -375,7 +371,8 @@ def main():
         st.session_state.matObjects.append(mat_object)
         st.session_state.matObjectsCodeString.append(mat_object_code_string)
         create_stored_material_select_box()
-        st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects)
+        previous_values=st.session_state.multiple_material_selection
+        st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects, default=previous_values)
         st.rerun()
 
     if st.session_state.plot_current_trigger:
