@@ -330,9 +330,9 @@ def display_footer():
     }
     .footer .logo {
         position: absolute;
-        right: 10px;
+        left: 30px;
         bottom: 10px;
-        height: 60px; /* Increased size */
+        height: 100px; /* Increased size */
     }
     </style>
     <div class="footer">
