@@ -64,6 +64,7 @@ def create_top_buttons():
     with load_typical:
         if st.button('Load Typical'):
             default_materials()
+            st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects)
             #st.success('Materials Loaded')
 
 def generate_material_list():
@@ -354,7 +355,7 @@ def main():
     if "previous_material_selection" not in st.session_state:
         st.session_state.previous_material_selection=None
 
-    material_selection=st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects, default=st.session_state.previous_material_selection)
+    material_selection=st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects)
     
     display_header()
     display_pip_install()
@@ -398,7 +399,6 @@ def main():
         plot_all(material_selection)
         st.session_state.plot_all_trigger = False
         
-    st.session_state.previous_material_selection=material_selection
     display_footer()
 
 if __name__ == "__main__":
