@@ -334,6 +334,8 @@ def main():
     if "plot_current_trigger" not in st.session_state:
         st.session_state.plot_current_trigger = False
 
+    options=st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects)
+
     display_header()
     display_pip_install()
     display_dependencies_code()
@@ -343,7 +345,7 @@ def main():
     selected_material_name = create_stored_material_select_box()
 
     st.sidebar.header("Input Material Properties")
-    material_type = st.sidebar.selectbox("Select Material Type", ["BiLineal Steel", "Uncofined Mandel Concrete", "Confined Mandel Steel"])
+    material_type = st.sidebar.selectbox("Select Material Type", ["Confined Mandel Steel", "Uncofined Mandel Concrete", "BiLineal Steel"])
 
     mat_object, mat_object_code_string = create_material_select_box(material_type)
     
