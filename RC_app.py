@@ -371,12 +371,14 @@ def main():
     
     display_header()
     
+    st.divider()
     with st.expander("VIEW PYTHON IMPLEMENTATION:"):
         display_pip_install()
         display_dependencies_code()
-        
+    
     st.divider()
     create_top_buttons()
+    
     st.divider()
     create_stored_material_select_box()
 
