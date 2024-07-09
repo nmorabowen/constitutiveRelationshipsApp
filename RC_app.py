@@ -371,7 +371,7 @@ def main():
     
     display_header()
     
-    with st.expander("View python implmentation:")
+    with st.expander("View python implmentation:"):
         display_pip_install()
         display_dependencies_code()
         
