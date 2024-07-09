@@ -299,14 +299,13 @@ def plot_all(material_selection):
     for material in material_selection:
         material.plot(ax=ax)
     st.pyplot(fig)
-    st.write(material_selection)
 
 def default_materials():
     A36=cr.uniaxialBilinealSteel('A36', 36*ksi, 1.50*36*ksi)
     A572=cr.uniaxialBilinealSteel('A572', 50*ksi, 1.10*50*ksi)
     A706Gr60=cr.uniaxialBilinealSteel('A706Gr60', 60*ksi, 1.25*60*ksi)
     
-    fc240uc=cr.uniaxialUnconfinedConcrete('fc240uc', 240*kgf/cm**2, eco=0.003)
+    fc240uc=cr.uniaxialUnconfinedConcrete('fc240uc', 240*kgf/cm**2)
 
     fc240cc=cr.uniaxialConfinedConcrete('fc240cc', 24, 0.003, 300, 400, 30, 3, 4, 16, 2, 2, 10, 200, 420, 0.09)
     
@@ -343,6 +342,9 @@ def main():
 
     if "plot_all_trigger" not in st.session_state:
         st.session_state.plot_all_trigger = False
+        
+    if "load_typical_trigger" noi in st.session_state:
+        st.session_state.load_typical_trigger = False
 
     if "plot_current_trigger" not in st.session_state:
         st.session_state.plot_current_trigger = False
@@ -393,6 +395,9 @@ def main():
     if st.session_state.plot_all_trigger:
         plot_all(material_selection)
         st.session_state.plot_all_trigger = False
+        
+    if "plot_current_trigger" not in st.session_state:
+        st.session_state.plot_current_trigger = False
         
     display_footer()
 
