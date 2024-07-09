@@ -58,6 +58,7 @@ def create_top_buttons():
     with erase_all:
         if st.button('Erase All Plots'):
             st.session_state.matObjects = []  # Clear all plots
+            st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects)
             #st.success('All plots erased!')
             
     with load_typical:
@@ -349,8 +350,11 @@ def main():
 
     if "plot_current_trigger" not in st.session_state:
         st.session_state.plot_current_trigger = False
+        
+    if "previous_material_selection" not in st.session_state:
+        st.session_state.previous_material_selection=None
 
-    material_selection=st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects)
+    material_selection=st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects, default=st.session_state.previous_material_selection)
     
     display_header()
     display_pip_install()
@@ -394,6 +398,7 @@ def main():
         plot_all(material_selection)
         st.session_state.plot_all_trigger = False
         
+    st.session_state.previous_material_selection=material_selection
     display_footer()
 
 if __name__ == "__main__":
