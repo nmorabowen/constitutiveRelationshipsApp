@@ -63,8 +63,6 @@ def create_top_buttons():
     with load_typical:
         if st.button('Load Typical'):
             default_materials()
-            previous_values=st.session_state.multiple_material_selection
-            st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects, default=previous_values)
             #st.success('Materials Loaded')
 
 def generate_material_list():
