@@ -311,7 +311,7 @@ def default_materials():
     fc240cc=cr.uniaxialConfinedConcrete('fc240cc', 24, 0.003, 300, 400, 30, 3, 4, 16, 2, 2, 10, 200, 420, 0.09)
     
     st.session_state.matObjects=[A36, A572, A706Gr60, fc240uc, fc240cc]
-    st.session_state.matObjectsCodeString=[code_block_steel(A36), code_block_steel(A572), code_block_steel(A706Gr60), code_block_uc_string(fc210uc), code_block_uc_string(fc240uc), code_block_uc_string(fc280uc), code_block_uc_string(fc350uc), code_block_cc_string(fc240cc)]
+    st.session_state.matObjectsCodeString=[code_block_steel(A36), code_block_steel(A572), code_block_steel(A706Gr60), code_block_uc_string(fc240uc), code_block_cc_string(fc240cc)]
 
 def display_footer():
     footer = """
