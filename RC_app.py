@@ -295,10 +295,10 @@ def plot_current(mat_object):
 
 def plot_all():
     fig, ax = plt.subplots(figsize=(10, 5))
-    #for material in st.session_state.matObjects:
-    for material in st.session_state.multiple_material_selection:
+    for material in st.session_state.matObjects:
         material.plot(ax=ax)
     st.pyplot(fig)
+    print(st.session_state.multiple_material_selection)
 
 def default_materials():
     A36=cr.uniaxialBilinealSteel('A36', 36*ksi, 1.50*36*ksi)
