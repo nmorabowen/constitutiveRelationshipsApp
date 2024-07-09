@@ -2,3 +2,4 @@
 -e git+https://github.com/nmorabowen/APE_Public.git@a7fef14f8dcd7a6c73f015700172349c7b4adfae#egg=APE_Public
 matplotlib==3.4.3
 matplotlib-inline==0.1.6
+numpy==1.24.3
