@@ -58,6 +58,7 @@ def create_top_buttons():
     with erase_all:
         if st.button('Erase All Plots'):
             st.session_state.matObjects = []  # Clear all plots
+            st.rerun()
             #st.success('All plots erased!')
             
     with load_typical:
