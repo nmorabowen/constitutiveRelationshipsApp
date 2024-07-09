@@ -125,7 +125,7 @@ def createBilinealSteel():
     esu_input = st.sidebar.text_input("esu", value=0.12)
     Es_input = st.sidebar.text_input("Es", value=200000.0)
     Esh_input = st.sidebar.text_input("Esh", value=7000.0)
-    color=st.sidebar.text_input('color',value='k')
+    color = st.sidebar.color_picker('color', value='#000000')
     
     # Evaluate the internal expressions
     fy=parse_expresion(fy_input)
@@ -152,7 +152,7 @@ def createUnconfinedConcrete():
     fco_input=st.sidebar.text_input('fco', value=24)
     eco_input=st.sidebar.text_input('eco', value=0.002)
     ec_sprall_input=st.sidebar.text_input('ec_sprall', value=0.006)
-    color=st.sidebar.text_input('color',value='k')
+    color = st.sidebar.color_picker('color', value='#000000')
     
     fco=parse_expresion(fco_input)
     eco=parse_expresion(eco_input)
@@ -183,7 +183,7 @@ def createConfinedConcrete():
     s_input=st.sidebar.text_input('s', value=100)
     fye_input=st.sidebar.text_input('fye', value=420)
     esu_estribo_input=st.sidebar.text_input('esu_estribo', value=0.09)
-    color=st.sidebar.text_input('color',value='k')
+    color = st.sidebar.color_picker('color', value='#000000')
     
     fco=parse_expresion(fco_input)
     eco=parse_expresion(eco_input)
