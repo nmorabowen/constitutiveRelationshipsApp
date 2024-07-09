@@ -327,18 +327,27 @@ def display_footer():
         text-align: center;
         padding: 10px;
         border-top: 1px solid #eaeaea;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .footer .logo {
-        position: absolute;
-        left: 10px;
-        bottom: 10px;
         height: 60px; /* Increased size */
+        margin-right: 20px;
+    }
+    .footer .separator {
+        border-left: 2px solid #eaeaea;
+        height: 60px;
+        margin-right: 20px;
     }
     </style>
     <div class="footer">
-        <p>Developed by Nicolás Mora Bowen | <a href="https://www.ape-ec.com" target="_blank">APE</a> | <a href="https://www.nmorabowen.com" target="_blank">Nicolás Mora Bowen</a> | <a href="https://github.com/nmorabowen" target="_blank">GitHub</a></p>
-        <p>© Version 1.0.0  - July, 2024</p>
         <img class="logo" src="https://raw.githubusercontent.com/nmorabowen/constitutiveRelationshipsApp/main/APE_LOGO.png" alt="APE Logo">
+        <div class="separator"></div>
+        <div>
+            <p>Developed by Nicolás Mora Bowen | <a href="https://www.ape-ec.com" target="_blank">APE</a> | <a href="https://www.nmorabowen.com" target="_blank">Nicolás Mora Bowen</a> | <a href="https://github.com/nmorabowen" target="_blank">GitHub</a></p>
+            <p>© Version 1.0.0  - July, 2024</p>
+        </div>
     </div>
     """
     st.markdown(footer, unsafe_allow_html=True)
