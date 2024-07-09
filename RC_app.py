@@ -328,10 +328,17 @@ def display_footer():
         padding: 10px;
         border-top: 1px solid #eaeaea;
     }
+    .footer .logo {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        height: 40px;
+    }
     </style>
     <div class="footer">
         <p>Developed by Nicolás Mora Bowen | <a href="https://www.ape-ec.com" target="_blank">APE</a> | <a href="https://www.nmorabowen.com" target="_blank">Nicolás Mora Bowen</a> | <a href="https://github.com/nmorabowen" target="_blank">GitHub</a></p>
         <p>© Version 1.0.0  - July, 2024</p>
+        <img class="logo" src="APE_LOGO.png" alt="APE Logo">
     </div>
     """
     st.markdown(footer, unsafe_allow_html=True)
