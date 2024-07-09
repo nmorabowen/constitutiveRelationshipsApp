@@ -36,7 +36,7 @@ def display_pip_install():
     st.code(
         """
         # Install python packages
-        # No editable
+        # Not editable
         pip install https://github.com/nmorabowen/APE_Public/raw/main/dist/APE_Public-0.1-py3-none-any.whl
         # Editable
         pip install -e git+https://github.com/nmorabowen/APE_Public.git#egg=APE_Public
