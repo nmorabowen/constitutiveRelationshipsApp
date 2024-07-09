@@ -397,6 +397,7 @@ def main():
         st.session_state.plot_all_trigger = False
         
     if "load_typical_trigger" not in st.session_state:
+        st.rerun()
         st.session_state.load_typical_trigger = False
         
     display_footer()
