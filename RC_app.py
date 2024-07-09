@@ -62,17 +62,17 @@ def create_top_buttons():
     with plot_current:
         if st.button('Plot Current'):
             st.session_state.plot_current_trigger = True
-            st.success('Plotted')
+            #st.success('Plotted')
     
     with erase_all:
         if st.button('Erase All Plots'):
             st.session_state.matObjects = []  # Clear all plots
-            st.success('All plots erased!')
+            #st.success('All plots erased!')
             
     with load_typical:
         if st.button('Load Typical'):
             default_materials()
-            st.success('Materials Loaded')
+            #st.success('Materials Loaded')
 
 def generate_material_list():
     # Function create a list of material objects
