@@ -293,12 +293,12 @@ def plot_current(mat_object):
     st.pyplot(fig)
     st.success('The required input parameters for Xtract are:')
 
-def plot_all():
+def plot_all(material_selection):
     fig, ax = plt.subplots(figsize=(10, 5))
     for material in st.session_state.matObjects:
         material.plot(ax=ax)
     st.pyplot(fig)
-    st.write(st.session_state.multiple_material_selection)
+    st.write(material_selection)
 
 def default_materials():
     A36=cr.uniaxialBilinealSteel('A36', 36*ksi, 1.50*36*ksi)
@@ -348,12 +348,8 @@ def main():
 
     if "plot_current_trigger" not in st.session_state:
         st.session_state.plot_current_trigger = False
-        
-    if "multiple_material_selection" not in st.session_state:
-        st.session_state.multiple_material_selection=[]
 
     material_selection=st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects)
-    st.session_state.multiple_material_selection.append(material_selection)
     
     display_header()
     display_pip_install()
@@ -396,7 +392,7 @@ def main():
         st.session_state.plot_current_trigger = False
 
     if st.session_state.plot_all_trigger:
-        plot_all()
+        plot_all(material_selection)
         st.session_state.plot_all_trigger = False
         
     display_footer()
