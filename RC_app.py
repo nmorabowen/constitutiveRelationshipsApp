@@ -370,8 +370,11 @@ def main():
     material_selection=st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects)
     
     display_header()
-    display_pip_install()
-    display_dependencies_code()
+    
+    with st.expander("View python implmentation:")
+        display_pip_install()
+        display_dependencies_code()
+        
     st.divider()
     create_top_buttons()
     st.divider()
