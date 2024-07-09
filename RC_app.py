@@ -295,7 +295,8 @@ def plot_current(mat_object):
 
 def plot_all(material_selection):
     fig, ax = plt.subplots(figsize=(10, 5))
-    for material in st.session_state.matObjects:
+    #for material in st.session_state.matObjects:
+    for material in material_selection:
         material.plot(ax=ax)
     st.pyplot(fig)
     st.write(material_selection)
@@ -368,8 +369,6 @@ def main():
         st.session_state.matObjects.append(mat_object)
         st.session_state.matObjectsCodeString.append(mat_object_code_string)
         create_stored_material_select_box()
-        previous_values=st.session_state.multiple_material_selection
-        st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects, default=previous_values)
         st.rerun()
 
     if st.session_state.plot_current_trigger:
