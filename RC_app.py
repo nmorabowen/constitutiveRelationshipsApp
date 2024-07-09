@@ -337,7 +337,7 @@ def display_footer():
     }
     .footer .separator {
         border-left: 2px solid #eaeaea;
-        height: 60px;
+        height: 120px;
         margin-right: 20px;
     }
     </style>
