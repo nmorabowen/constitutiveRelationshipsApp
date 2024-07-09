@@ -323,6 +323,28 @@ def default_materials():
     st.session_state.matObjects=[A36, A572, A706Gr60, fc210uc, fc240uc, fc280uc, fc350uc, fc240cc]
     st.session_state.matObjectsCodeString=[code_block_steel(A36), code_block_steel(A572), code_block_steel(A706Gr60), code_block_uc_string(fc210uc), code_block_uc_string(fc240uc), code_block_uc_string(fc280uc), code_block_uc_string(fc350uc), code_block_cc_string(fc240cc)]
 
+def display_footer():
+    footer = """
+    <style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: white;
+        color: black;
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid #eaeaea;
+    }
+    </style>
+    <div class="footer">
+        <p>Developed by Nicolás Mora Bowen | <a href="https://www.ape-ec.com" target="_blank">APE</a> | <a href="https://www.nmorabowen.com" target="_blank">Nicolás Mora Bowen</a> | <a href="https://github.com/nmorabowen" target="_blank">GitHub</a></p>
+        <p>© Version 1.0.0  - July, 2024</p>
+    </div>
+    """
+    st.markdown(footer, unsafe_allow_html=True)
+
 def main():
     if "matObjects" not in st.session_state:
         st.session_state.matObjects = []
@@ -378,6 +400,8 @@ def main():
     if st.session_state.plot_all_trigger:
         plot_all()
         st.session_state.plot_all_trigger = False
+        
+    display_footer()
 
 if __name__ == "__main__":
     main()
