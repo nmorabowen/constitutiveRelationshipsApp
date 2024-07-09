@@ -303,13 +303,13 @@ def plot_all(material_selection):
     st.pyplot(fig)
 
 def default_materials():
-    A36=cr.uniaxialBilinealSteel('A36', 36*ksi, 1.50*36*ksi)
-    A572=cr.uniaxialBilinealSteel('A572', 50*ksi, 1.10*50*ksi)
-    A706Gr60=cr.uniaxialBilinealSteel('A706Gr60', 60*ksi, 1.25*60*ksi)
+    A36=cr.uniaxialBilinealSteel('A36', 36*ksi, 1.50*36*ksi, color='black')
+    A572=cr.uniaxialBilinealSteel('A572', 50*ksi, 1.10*50*ksi, color='olive')
+    A706Gr60=cr.uniaxialBilinealSteel('A706Gr60', 60*ksi, 1.25*60*ksi, color='#000077')
     
-    fc240uc=cr.uniaxialUnconfinedConcrete('fc240uc', 240*kgf/cm**2)
+    fc240uc=cr.uniaxialUnconfinedConcrete('fc240uc', 240*kgf/cm**2, color='grey')
 
-    fc240cc=cr.uniaxialConfinedConcrete('fc240cc', 24, 0.003, 300, 400, 30, 3, 4, 16, 2, 2, 10, 200, 420, 0.09)
+    fc240cc=cr.uniaxialConfinedConcrete('fc240cc', 24, 0.003, 300, 400, 30, 3, 4, 16, 2, 2, 10, 200, 420, 0.09, color='navy')
     
     st.session_state.matObjects=[A36, A572, A706Gr60, fc240uc, fc240cc]
     st.session_state.matObjectsCodeString=[code_block_steel(A36), code_block_steel(A572), code_block_steel(A706Gr60), code_block_uc_string(fc240uc), code_block_cc_string(fc240cc)]
@@ -352,11 +352,36 @@ def display_footer():
     """
     st.markdown(footer, unsafe_allow_html=True)
 
+def create_material_properties_steel(mat_object):
+    yield_stress=mat_object.fy*kPa
+    fracture_stress=mat_object.fsu*kPa
+    strain_at_strain_hardening=mat_object.esh
+    failure_strain=mat_object.esu
+    elastic_modulus=mat_object.Es*kPa
+    
+    st.subheader(f"Material Properties for {mat_object.name} steel")
+    text=f"""
+    Yield Stress = {np.round(yield_stress,2)} [kPa]
+    Fracture Stress = {np.round(fracture_stress,2)} [kPa]
+    Strain at Strain Hardening = {strain_at_strain_hardening}
+    Failure Strain = {failure_strain}
+    Elastic Modulus = {np.round(elastic_modulus,2)}
+    """
+    st.markdown(text)
+    
+
+def create_material_properties_uc(mat_object):
+    pass
+
+def create_material_properties_cc(mat_object):
+    pass
+
 
 def main():
     if "matObjects" not in st.session_state:
         st.session_state.matObjects = []
         st.session_state.matObjectsCodeString = []
+        st.session_state.matObjectsProp=[]
 
     if "plot_all_trigger" not in st.session_state:
         st.session_state.plot_all_trigger = False
@@ -406,6 +431,7 @@ def main():
             if selected_material:
                 print_code_block(selected_mat_code_string)
                 plot_current(selected_material)
+                
             else:
                 st.warning("Selected material not found.")
         else:
