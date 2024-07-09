@@ -63,6 +63,8 @@ def create_top_buttons():
     with load_typical:
         if st.button('Load Typical'):
             default_materials()
+            previous_values=st.session_state.multiple_material_selection
+            st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects, default=previous_values)
             #st.success('Materials Loaded')
 
 def generate_material_list():
@@ -336,6 +338,10 @@ def display_footer():
     </div>
     """
     st.markdown(footer, unsafe_allow_html=True)
+
+def update_material_selection():
+    previous_values=st.session_state.multiple_material_selection
+    st.multiselect(label='Select the curves you want to plot',options=st.session_state.matObjects, default=previous_values)
 
 def main():
     if "matObjects" not in st.session_state:
