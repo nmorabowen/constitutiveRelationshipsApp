@@ -338,7 +338,7 @@ def display_footer():
     <div class="footer">
         <p>Developed by Nicolás Mora Bowen | <a href="https://www.ape-ec.com" target="_blank">APE</a> | <a href="https://www.nmorabowen.com" target="_blank">Nicolás Mora Bowen</a> | <a href="https://github.com/nmorabowen" target="_blank">GitHub</a></p>
         <p>© Version 1.0.0  - July, 2024</p>
-        <img class="logo" src="APE_LOGO.png" alt="APE Logo">
+        <img class="logo" src="https://raw.githubusercontent.com/nmorabowen/APE_Public/main/APE_LOGO.png" alt="APE Logo">
     </div>
     """
     st.markdown(footer, unsafe_allow_html=True)
