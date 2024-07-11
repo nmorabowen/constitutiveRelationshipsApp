@@ -346,7 +346,7 @@ def display_footer():
         <div class="separator"></div>
         <div>
             <p>Developed by Nicolás Mora Bowen | <a href="https://www.ape-ec.com" target="_blank">APE</a> | <a href="https://www.nmorabowen.com" target="_blank">Nicolás Mora Bowen</a> | <a href="https://github.com/nmorabowen" target="_blank">GitHub</a></p>
-            <p>© Version 1.0.1  - July, 2024</p>
+            <p>© Version 1.0.2  - July, 2024</p>
         </div>
     </div>
     """
